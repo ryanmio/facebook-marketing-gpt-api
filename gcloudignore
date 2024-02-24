@@ -1,0 +1,8 @@
+# This .gcloudignore file excludes all files by default and includes only specific directories and files
+
+# Exclude everything by default
+*
+
+# Include the src directory and the requirements.txt file
+!src/
+!requirements.txt
