@@ -1,0 +1,102 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Facebook Marketing Search",
+      "description": "This API allows searching Facebook marketing interests based on provided search terms.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://us-central1-facebook-marketing-gpt-api.cloudfunctions.net/facebook_marketing_search"
+      }
+    ],
+    "paths": {
+      "/search_facebook_marketing": {
+        "post": {
+          "summary": "Search Marketing Interests",
+          "description": "Searches Facebook marketing interests using provided search terms and returns related data.",
+          "operationId": "searchFacebookMarketing",
+          "requestBody": {
+            "description": "Request payload containing search terms.",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchTerms"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/InterestData"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid request: No search terms provided",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "SearchTerms": {
+          "type": "object",
+          "properties": {
+            "terms": {
+              "type": "string",
+              "description": "Comma-separated search terms for finding marketing interests."
+            }
+          },
+          "required": ["terms"]
+        },
+        "InterestData": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the marketing interest."
+            },
+            "audience_size_lower_bound": {
+              "type": "integer",
+              "description": "The lower bound of the audience size interested in this topic."
+            },
+            "audience_size_upper_bound": {
+              "type": "integer",
+              "description": "The upper bound of the audience size interested in this topic."
+            },
+            "path": {
+              "type": "string",
+              "description": "The categorization path of the marketing interest."
+            },
+            "description": {
+              "type": "string",
+              "description": "A brief description of the marketing interest."
+            },
+            "topic": {
+              "type": "string",
+              "description": "The general topic of the marketing interest."
+            }
+          }
+        }
+      }
+    }
+  }
+  
