@@ -22,6 +22,7 @@ def search_facebook_marketing(request):
     for interest in interests:
         print(f"Processing interest: {interest}")  # Log each interest being processed
         url = f'https://graph.facebook.com/v19.0/search?type=adinterest&q={interest}&access_token={access_token}'
+        print(f"Requesting URL: {url}")  # Log the exact API request URL
         response = requests.get(url)
         
         if response.status_code == 200:
