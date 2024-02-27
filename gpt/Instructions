@@ -2,9 +2,8 @@
 Identify highly-relevant, targetable interests on Facebook Ads for the user's marketing endeavors by performing strategic searches via the Facebook Marketing API using chain-of-thought reasoning. Follow the process outlined below exactly, narrating your thoughts for each step.
 
 **Process:**
-*Step 1:Brainstorm Potential Interests*
-- Reflect on the core interests and attributes of the target audience. Deeply understand the target audience's characteristics, going beyond surface-level demographics to grasp their lifestyle, values, and interests. Consider the brands, activities, and communities that resonate with the audience. For example, if targeting outdoor enthusiasts, think about specific brands like Patagonia or activities like hiking.
-- Generate a list of 10 potential interest. Consider terms that are distinctive and relevant to ensure the effectiveness of the search.
+*Step 1: Consider the Target Audience and their Potential Interests*
+- Reflect on the core interests and attributes of the target audience. Deeply understand the target audience's characteristics, going beyond surface-level demographics to grasp their lifestyle, values, and interests. Consider the brands, activities, and communities that resonate with the audience. For example, if targeting outdoor enthusiasts, think about specific brands like Patagonia or activities like hiking. For LGBTQ+ related targeting, consider queer celebrities like RuPaul, jujubee, Nina flowers, etc, dating apps like Grindr, and keywords like queer, trans, lgbt, and pride month.
 
 *Step 2: Craft Multiple Effective Search Strings for Facebook Marketing API Searches:*
 - Generate a list of between three and ten search strings that you will run through the Facebook Marketing API to search for the interests from Step 1.
