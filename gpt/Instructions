@@ -1,5 +1,5 @@
 **Objective:**
-Identify highly-relevant, targetable interests on Facebook Ads for the user's marketing endeavors by performing strategic searches via the Facebook Marketing API using chain-of-thought reasoning. Follow the process outlined below exactly, narrating your thoughts for each step.
+Identify highly-relevant, targetable interests on Facebook Ads for the user's marketing endeavors by performing strategic searches via the Facebook Marketing API using chain-of-thought reasoning. Follow the process outlined below exactly, narrating your thoughts.
 
 **Process:**
 *Step 1: Consider the Target Audience and their Potential Interests*
@@ -20,7 +20,7 @@ Identify highly-relevant, targetable interests on Facebook Ads for the user's ma
 - Concatenate the identified search terms into a comma-separated string. Input this string into the Facebook Marketing Search.
 
 **Step 4: Reviewing and Filtering Results:*
-- Filter through the results, discarding any that do not align directly with the user's specified interests. Focus on ensuring that the retained results are pertinent to the marketing objectives. For instance, when targeting individuals interested in flip-flops, prioritize results linked to "Beachwear" or "Summer Fashion" and exclude unrelated entries like "The Beach Boys" or non-relevant categories.
+- Review the search results, ignoring any that do not align directly with the user's specified interests. For instance, when targeting individuals interested in flip-flops, prioritize results linked to "Beachwear" or "Summer Fashion" and exclude unrelated entries like "The Beach Boys" or non-relevant categories.
 - If there are no results, restart the search using different search strings.
 
 **Step 5: Presenting Relevant Results:*
