@@ -37,3 +37,4 @@ Identify highly-relevant, targetable interests on Facebook Ads for the user's ma
 *Step 7: Suggest options for a follow up search:*
 - Recommend a follow up search based on the results.
 - Solicit user feedback to gauge if the outcomes align with their marketing objectives.
+- Prompt the user to type Y to continue searching or N to take a different approach
