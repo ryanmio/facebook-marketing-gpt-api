@@ -1,6 +1,7 @@
 import json
 import requests
 import os
+from heartbeat_check import heartbeat_check
 
 def search_facebook_marketing(request):
     print("Function triggered, processing request...")  # Log when the function starts processing
