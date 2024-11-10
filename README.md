@@ -1,8 +1,8 @@
 # Facebook Token Exchange Tool
 
-This tool helps you generate a long-lived access token for Facebook API access. This token is required for both the main marketing API function and the heartbeat check function.
+This tool helps you generate a long-lived access token for Facebook API access and automatically deploy it to your Google Cloud Functions.
 
-## Getting a Long-Lived Token
+## Getting a Long-Lived Token and Deploying
 
 1. Go to [Facebook Access Token Tool](https://developers.facebook.com/tools/accesstoken/)
 2. Find your app in the list
@@ -12,24 +12,15 @@ This tool helps you generate a long-lived access token for Facebook API access. 
    python3 src/exchange_token.py
    ```
 5. Paste in your short-lived token when prompted
-6. Copy the long-lived token that is generated
+6. When asked if you want to deploy, type 'y' to automatically update both functions
 
-## Updating Your Functions
+The script will:
+- Exchange your short-lived token for a long-lived token
+- Deploy the new token to both the main marketing API function and heartbeat check function
+- Display the new token for your records
 
-You'll need to update the token in two places:
-
-### 1. Main Marketing API Function
-Update the `FB_ACCESS_TOKEN` secret in your Google Cloud Function:
-- Go to your function in Google Cloud Console
-- Click "Edit"
-- Scroll to "Runtime, build, connections and security settings"
-- Expand "Security"
-- Under "Runtime environment variables", find or add `FB_ACCESS_TOKEN`
-- Paste your new long-lived token as the value
-- Click "Deploy"
-
-### 2. Heartbeat Check Function
-Update the token in your heartbeat check function the same way:
-- Go to your heartbeat check function in Google Cloud Console
-- Follow the same steps as above to update the `FB_ACCESS_TOKEN`
-- Click "Deploy"
+## Manual Deployment
+If you need to deploy the functions without updating the token, use:
+```bash
+./deployment/gcloud_deploy.sh
+```
