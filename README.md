@@ -1,54 +1,53 @@
 # Facebook Marketing API Interest Finder
 
-A powerful tool for discovering targetable interests on Facebook Ads using the Marketing API. This project includes both a cloud function for API searches and utilities for token management.
+Backend service for Custom GPTs to search Facebook's Marketing API for ad targeting interests. Includes token management and cloud function deployment utilities.
 
 ## Overview
 
-This tool provides two main functionalities:
-1. Search Facebook's Marketing API for targetable interests
-2. Manage Facebook API access tokens
+This service does two things:
+1. Searches Facebook's Marketing API for targetable interests
+2. Manages Facebook API access tokens
 
-Unlike Facebook's in-platform tool which requires exact matches, this API-based approach searches across names, descriptions, and paths to find relevant interests for ad targeting.
+The API search checks names, descriptions, and paths - finding more interests than Facebook's in-platform tool which only does exact matches.
 
 ## Features
 
 ### 1. Interest Search Function
-- Searches across multiple terms simultaneously
-- Returns detailed interest information:
-  - Name
-  - Audience size (upper and lower bounds)
-  - Categorization path
-  - Description
-  - Topic
-- Handles multiple search terms via comma-separated strings
-- Returns results in JSON format
+Returns:
+- Interest name
+- Audience size range
+- Category path
+- Description
+- Topic
+
+Takes comma-separated search terms, returns JSON.
 
 ### 2. Token Management
-- Exchanges short-lived tokens for long-lived tokens
-- Automatically deploys new tokens to cloud functions
-- Handles SSL certificate verification
-- Includes manual deployment options
+- Converts short-lived tokens to long-lived tokens
+- Deploys tokens to cloud functions
+- Handles SSL certificates
+- Has manual deployment option
 
-## Setup and Installation
+## Setup
 
 ### Token Setup
 1. Go to [Facebook Access Token Tool](https://developers.facebook.com/tools/accesstoken/)
-2. Find your app in the list
-3. Copy the "User Token" (this is your short-lived token)
-4. Run the token exchange script:
+2. Find your app
+3. Copy the User Token (short-lived token)
+4. Run:
    ```bash
    python3 src/exchange_token.py
    ```
-5. Paste in your short-lived token when prompted
-6. When asked if you want to deploy, type 'y' to automatically update both functions
+5. Paste your token when prompted
+6. Type 'y' to deploy to both functions
 
 The script will:
-- Exchange your short-lived token for a long-lived token
-- Deploy the new token to both the main marketing API function and heartbeat check function
-- Display the new token for your records
+- Get your long-lived token
+- Deploy it to both functions
+- Show you the new token
 
-### Manual Deployment
-If you need to deploy without updating tokens:
+### Manual Deploy
+To deploy without updating tokens:
 ```bash
 ./deployment/gcloud_deploy.sh
 ```
@@ -60,14 +59,14 @@ If you need to deploy without updating tokens:
 https://us-central1-facebook-marketing-gpt-api.cloudfunctions.net/facebook_marketing_search
 ```
 
-### Request Format
+### Request
 ```json
 {
   "terms": "comma,separated,search,terms"
 }
 ```
 
-### Response Format
+### Response
 ```json
 [
   {
@@ -81,27 +80,24 @@ https://us-central1-facebook-marketing-gpt-api.cloudfunctions.net/facebook_marke
 ]
 ```
 
-## Search Strategy
-
-The tool follows a structured approach to find relevant interests:
+## How It Searches
 
 1. **Audience Analysis**
-   - Considers core interests and attributes
-   - Analyzes lifestyle, values, and behaviors
-   - Identifies relevant brands and activities
+- Looks at core interests
+- Checks behaviors and values
+- Finds related brands/activities
 
-2. **Search Term Selection**
-   - Uses precise, concise terms
-   - Includes common variations
-   - Avoids unnecessary qualifiers
-   - Focuses on unique identifiers
+2. **Search Terms**
+- Uses short, specific terms
+- Includes variations
+- Skips unnecessary words
+- Uses unique identifiers
 
-3. **Result Filtering**
-   - Validates relevance to target audience
-   - Considers audience size ranges
-   - Evaluates categorization paths
-
+3. **Results**
+- Checks relevance
+- Looks at audience size
+- Reviews categories
 
 ## Contributing
 
-This project is maintained by Ryan Mioduski. For issues, feature requests, or contributions, please submit a pull request or open an issue in the repository.
+Made by Ryan Mioduski. Open issues or PRs for changes.
